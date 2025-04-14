@@ -60,7 +60,6 @@ class LikedActivity : AppCompatActivity() {
                 Log.d("LikedActivity", "Error getting liked posts: ", exception)
             }
 
-        // Setting up the navigation buttons
         val home: ImageView = findViewById(R.id.home_img)
         val search: ImageView = findViewById(R.id.search_img)
         val user: ImageView = findViewById(R.id.user_btn2)
