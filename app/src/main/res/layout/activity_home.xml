@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:alpha="0.05"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@id/your_linear_layout" />
+    <LinearLayout
+        android:id="@+id/your_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/search_img"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginTop="-5dp"
+            app:srcCompat="@mipmap/search_foreground" />
+
+        <ImageView
+            android:id="@+id/home_img"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/home_foreground" />
+
+        <ImageView
+            android:id="@+id/fav_img"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/fav_foreground" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo_view"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/home_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Home"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/user_btn"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toEndOf="@+id/logo_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/user_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/user_icon_foreground" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView_Home"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_view" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:alpha="0.05"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/upper_layout" />
+    <LinearLayout
+        android:id="@+id/upper_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_view"></LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

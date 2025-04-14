@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Books_Talk" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="android:background">#122710</item>
+        <item name="android:textColor">#EDEAEA</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:buttonStyle">@style/Books_Talk</item>
+    </style>
+
+    <style name="Theme.Books_Talk" parent="Base.Theme.Books_Talk" />
+
+    <!-- Define custom button style -->
+    <style name="Books_Talk">
+        <item name="android:backgroundTint">#99A991</item> <!-- Example background color for the button -->
+        <item name="android:textColor">#2C2C2C</item>   <!-- Text color for the button -->
+        <item name="cornerRadius">8dp</item>
+    </style>
+</resources>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+
+    <EditText
+        android:id="@+id/rating_edit"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Book Rating"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleEditText" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:alpha="0.05"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@id/your_linear_layout" />
+
+    <LinearLayout
+        android:id="@+id/your_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/search_img"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/search_foreground" />
+
+        <ImageView
+            android:id="@+id/home_img"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/home_foreground" />
+
+        <ImageView
+            android:id="@+id/fav_img"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/fav_foreground" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Book Title"
+        android:maxLength="10"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_text3" />
+
+    <TextView
+        android:id="@+id/home_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Adding Post"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/user_btn_add"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toEndOf="@+id/logo_view_add"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/user_btn_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/user_icon_foreground" />
+
+    <ImageView
+        android:id="@+id/logo_view_add"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:alpha="0.05"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/upper_layout" />
+    <LinearLayout
+        android:id="@+id/upper_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_view_add"></LinearLayout>
+
+    <EditText
+        android:id="@+id/conentEditText"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Content"
+        android:maxLength="1000"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/addBook_btn"
+        style="@style/Books_Talk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="@+id/conentEditText"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/conentEditText"
+        app:layout_constraintTop_toBottomOf="@+id/conentEditText" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="(Out Of 10)"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/rating_edit"
+        app:layout_constraintStart_toStartOf="@+id/rating_edit"
+        app:layout_constraintTop_toBottomOf="@+id/rating_edit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
