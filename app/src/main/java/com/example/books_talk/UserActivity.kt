@@ -88,7 +88,6 @@ class UserActivity : AppCompatActivity() {
                     Log.e("UserActivity", "Error fetching username for posts", e)
                 }
         }
-
         arrowBack.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
