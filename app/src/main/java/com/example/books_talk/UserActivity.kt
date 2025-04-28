@@ -5,7 +5,6 @@ import MyAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -40,7 +39,7 @@ class UserActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView = findViewById(R.id.RecyclerView_User)
         books = mutableListOf()
-        myAdapter = MyAdapter(books)
+        myAdapter = MyAdapter(books, true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = myAdapter
 
@@ -93,14 +92,7 @@ class UserActivity : AppCompatActivity() {
                     Log.e("UserActivity", "Error fetching username for posts", e)
                 }
         }
-        recyclerView.post {
-                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-                for (i in 0 until recyclerView.childCount) {
-                val itemView = recyclerView.getChildAt(i)
-                val trashImageView = itemView.findViewById<ImageView>(R.id.trash_img)
-                trashImageView.visibility = View.VISIBLE  // Make the trash icon visible in UserActivity
-            }
-        }
+
         arrowBack.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
