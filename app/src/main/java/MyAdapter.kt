@@ -10,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.books_talk.R
 import com.example.books_talk.SinglebookActivity
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 
-class MyAdapter(var books: List<Book>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(var books: List<Book>, private val isUserActivity: Boolean) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     private var auth = Firebase.auth
     val db = Firebase.firestore
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val trashImageView: ImageView = itemView.findViewById(R.id.trash_img)//finish this
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.book_item, parent, false)
@@ -25,6 +26,7 @@ class MyAdapter(var books: List<Book>) : RecyclerView.Adapter<MyAdapter.MyViewHo
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
         val textViewTitle: TextView = holder.itemView.findViewById(R.id.Title_TextView)
         val textViewContent: TextView = holder.itemView.findViewById(R.id.content_TextView)
         val textViewUsername: TextView = holder.itemView.findViewById(R.id.username_TextView)

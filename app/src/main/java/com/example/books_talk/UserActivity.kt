@@ -5,6 +5,7 @@ import MyAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -33,7 +34,9 @@ class UserActivity : AppCompatActivity() {
         val addPostBtn: Button = findViewById(R.id.add_btn)
         val userName: TextView = findViewById(R.id.username_textView)
         val userEmail: TextView = findViewById(R.id.email_user)
+//        val delete: ImageView = findViewById(R.id.trash_img)
         val db = Firebase.firestore
+
 
         val recyclerView: RecyclerView = findViewById(R.id.RecyclerView_User)
         books = mutableListOf()
@@ -50,6 +53,8 @@ class UserActivity : AppCompatActivity() {
 
                         userName.text = username
                         userEmail.text = name
+//                        delete.visibility = View.VISIBLE
+
                     } else {
                         userName.text = "User not found"
                         userEmail.text = ""
@@ -87,6 +92,14 @@ class UserActivity : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Log.e("UserActivity", "Error fetching username for posts", e)
                 }
+        }
+        recyclerView.post {
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                for (i in 0 until recyclerView.childCount) {
+                val itemView = recyclerView.getChildAt(i)
+                val trashImageView = itemView.findViewById<ImageView>(R.id.trash_img)
+                trashImageView.visibility = View.VISIBLE  // Make the trash icon visible in UserActivity
+            }
         }
         arrowBack.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
