@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Search"
-        android:textSize="32dp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toStartOf="@+id/user_btn_search"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toEndOf="@+id/logo_view_search"
@@ -98,17 +98,31 @@
         app:layout_constraintTop_toBottomOf="@+id/logo_view_search"></LinearLayout>
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/SearchText"
         android:layout_width="380dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/edittext_search"
         android:ems="10"
         android:hint="Search"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:inputType="text"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_text2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/SearchRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
