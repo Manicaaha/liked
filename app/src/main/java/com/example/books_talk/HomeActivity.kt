@@ -38,6 +38,8 @@ class HomeActivity : AppCompatActivity() {
         auth = Firebase.auth
         val db = Firebase.firestore
 
+
+
         db.collection("books")
             .get()
             .addOnSuccessListener { result ->

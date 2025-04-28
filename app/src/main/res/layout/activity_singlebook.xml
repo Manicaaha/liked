@@ -60,13 +60,13 @@
         android:fontFamily="@font/poppins"
         android:text="Comments"
         android:textSize="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/user_btn_search2"
+        app:layout_constraintEnd_toStartOf="@+id/user_btn_single"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toEndOf="@+id/arrow_back_cmnt"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/user_btn_search2"
+        android:id="@+id/user_btn_single"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -195,7 +195,10 @@
         android:id="@+id/singlePost_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -220,7 +223,7 @@
             android:layout_weight="1"
             android:background="@drawable/edittext_background"
             android:ems="10"
-            android:hint="Comment"
+            android:hint="Comment (max 300 char)"
             android:inputType="text"
             android:paddingLeft="20dp"
             android:textAlignment="viewStart" />

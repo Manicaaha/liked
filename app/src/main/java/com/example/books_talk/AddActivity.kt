@@ -74,8 +74,8 @@ class AddActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (title.length > 1000 || content.length > 1000) {
-                Toast.makeText(baseContext, "Title or content exceeds 1000 characters", Toast.LENGTH_SHORT).show()
+            if (content.length > 500) {
+                Toast.makeText(baseContext, "Content exceeds 500 characters", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

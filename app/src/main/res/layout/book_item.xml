@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
+
     android:background="@drawable/rounded_background"
     android:backgroundTint="@color/white">
 
@@ -60,6 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="16dp"
+        android:maxLines="3"
+        android:ellipsize="end"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/poppins_light"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vestibulum odio ut nisi tempus viverra. Integer quis porttitor risus. "

@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,6 +41,7 @@ class SinglebookActivity : AppCompatActivity() {
         val home: ImageView = findViewById(R.id.home_img)
         val search: ImageView = findViewById(R.id.search_img)
         val liked: ImageView = findViewById(R.id.fav_img)
+        val user: ImageView = findViewById(R.id.user_btn_single)
 
         titlePlace.text = title
         usernamePlace.text = username
@@ -71,6 +73,11 @@ class SinglebookActivity : AppCompatActivity() {
 
         addCmtButton.setOnClickListener {
             val currentUserId = auth.currentUser!!.uid
+            val cmntContent = cmntText.text.toString()
+            if (cmntContent.length > 300) {
+                Toast.makeText(baseContext, "Content exceeds 300 characters", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             db.collection("users").document(currentUserId).get()
                 .addOnSuccessListener { userDocument ->
@@ -114,6 +121,11 @@ class SinglebookActivity : AppCompatActivity() {
         }
         liked.setOnClickListener {
             val intent = Intent(this, LikedActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        user.setOnClickListener {
+            val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
             finish()
         }
