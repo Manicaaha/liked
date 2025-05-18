@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tos_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Very long terms of service text that you must agree to in order to sign up for this perfect app thank you very much"
+        android:textSize="16sp" />
+</ScrollView>
