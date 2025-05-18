@@ -30,7 +30,7 @@ class SearchActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        myAdapter = MyAdapter(books)
+        myAdapter = MyAdapter(books, false)
         SearchView.adapter = myAdapter
         SearchView.layoutManager = LinearLayoutManager(this)
 

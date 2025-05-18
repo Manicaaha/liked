@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
         val home: ImageView = findViewById(R.id.home_img)
         val search: ImageView = findViewById(R.id.search_img)
         val favs: ImageView = findViewById(R.id.fav_img)
-        val myAdapter = MyAdapter(books)
+        val myAdapter = MyAdapter(books, false)
         val myRecyclerView: RecyclerView = findViewById(R.id.RecyclerView_Home)
         myRecyclerView.adapter = myAdapter
         myRecyclerView.layoutManager = LinearLayoutManager(this)

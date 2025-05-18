@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -19,20 +20,30 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val loginbtn: Button = findViewById(R.id.LoginBtn)
-        val button: Button = findViewById(R.id.googlebtn)
         val arrowBackLogin: ImageView = findViewById(R.id.arrow_back_login)
         val emailEditText = findViewById<EditText>(R.id.emailLogin)
         val passwordEditText = findViewById<EditText>(R.id.passwordLogin)
-
-        //resizing DON"T TOUCH
-        val drawable = ContextCompat.getDrawable(this, R.mipmap.google_foreground)
-        val drawableWidth = 90
-        val drawableHeight = 90
-        drawable?.setBounds(0, 0, drawableWidth, drawableHeight)
-        button.setCompoundDrawables(drawable, null, null, null)
+        val forgotPassword: TextView = findViewById(R.id.forgot)
 
         arrowBackLogin.setOnClickListener {
             onBackPressed()
+        }
+
+        forgotPassword.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            if (email.isEmpty()) {
+                Toast.makeText(this, "Input email first", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                auth.sendPasswordResetEmail(email).addOnCompleteListener{task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Password reset email sent", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Failed to send reset email", Toast.LENGTH_LONG).show()
+                        Log.e("LoginActivity", "Error sending reset email", task.exception)
+                    }
+                }
+            }
         }
 
         loginbtn.setOnClickListener {

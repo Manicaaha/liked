@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Books_Talk</string>
+    <string name="your_text"><u>Forgot Password</u></string>
 </resources>

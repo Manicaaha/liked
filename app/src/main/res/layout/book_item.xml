@@ -9,27 +9,32 @@
     android:background="@drawable/rounded_background"
     android:backgroundTint="@color/white">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/book_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"
         app:srcCompat="@mipmap/avatar_foreground" />
+
 
     <TextView
         android:id="@+id/username_TextView"
+        style="@style/BooksTalkPosts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/poppins_semibold"
         android:text="Username"
         android:textSize="15dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/book_avatar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -39,9 +44,10 @@
         android:layout_marginTop="4dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/poppins_semibold"
+        style="@style/BooksTalkPosts"
         android:text="Book Title"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/book_avatar"
         app:layout_constraintTop_toBottomOf="@+id/username_TextView" />
 
     <TextView
@@ -49,8 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/white"
+        style="@style/BooksTalkPosts"
         android:text="5,8"
         app:layout_constraintStart_toEndOf="@+id/Title_TextView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,6 +69,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginBottom="16dp"
         android:maxLines="3"
+        style="@style/BooksTalkPosts"
         android:ellipsize="end"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/poppins_light"
@@ -88,8 +96,9 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/white"
+        style="@style/BooksTalkPosts"
         android:text="/10"
         app:layout_constraintStart_toEndOf="@+id/rating_TextView"
         app:layout_constraintTop_toTopOf="parent" />

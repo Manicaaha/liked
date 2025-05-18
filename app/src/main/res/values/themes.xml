@@ -29,5 +29,9 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="cornerRadius">180dp</item>               <!-- Optional: Rounded corners -->
     </style>
+    <style name="BooksTalkPosts">
+        <item name="android:background">#FFFFFF</item> <!-- Set the background to white -->
+        <item name="android:textColor">#000000</item>       <!-- Optional: Rounded corners -->
+    </style>
 
 </resources>

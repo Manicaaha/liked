@@ -1,5 +1,4 @@
 package com.example.books_talk
-import Comment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log

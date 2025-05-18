@@ -24,7 +24,7 @@ class LikedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_liked)
 
         books = mutableListOf()
-        myAdapter = MyAdapter(books)
+        myAdapter = MyAdapter(books, false)
 
         val myRecyclerView: RecyclerView = findViewById(R.id.RecyclerView_Likes)
         myRecyclerView.layoutManager = LinearLayoutManager(this)

@@ -12,8 +12,9 @@ import com.example.books_talk.SinglebookActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
+import com.squareup.picasso.Picasso
 
-class MyAdapter(var books: List<Book>, private val isUserActivity: Boolean) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(var books: MutableList<Book>, private val isUserActivity: Boolean) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     private var auth = Firebase.auth
     val db = Firebase.firestore
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -32,6 +33,7 @@ class MyAdapter(var books: List<Book>, private val isUserActivity: Boolean) : Re
         val textViewUsername: TextView = holder.itemView.findViewById(R.id.username_TextView)
         val textViewRating: TextView = holder.itemView.findViewById(R.id.rating_TextView)
         val like_fill: ImageView = holder.itemView.findViewById(R.id.imageView4)
+        val avatar: ImageView = holder.itemView.findViewById(R.id.book_avatar)
         var doesExist = false
         val currentBook = books[position]
 
@@ -39,6 +41,29 @@ class MyAdapter(var books: List<Book>, private val isUserActivity: Boolean) : Re
         textViewContent.text = currentBook.content
         textViewUsername.text = currentBook.username
         textViewRating.text = "${currentBook.rating}"
+        holder.trashImageView.visibility = if (isUserActivity) View.VISIBLE else View.GONE
+
+        avatar.setImageResource(R.mipmap.avatar_foreground)
+
+        db.collection("users").document(currentBook.authorUid)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val avatarUrl = document.getString("avatarUrl")
+                    if (!avatarUrl.isNullOrEmpty()) {
+                        Picasso.get()
+                            .load(avatarUrl)
+                            .placeholder(R.mipmap.avatar_foreground)
+                            .error(R.mipmap.avatar_foreground)
+                            .into(avatar)
+                    }else{
+                        avatar.setImageResource(R.mipmap.avatar_foreground)
+                    }
+                }
+            }
+            .addOnFailureListener {
+                avatar.setImageResource(R.mipmap.avatar_foreground)
+            }
 
         val docRef = db.collection("likes").document(auth.currentUser!!.uid+":"+books[position].bookId)
         docRef.get()
@@ -54,6 +79,21 @@ class MyAdapter(var books: List<Book>, private val isUserActivity: Boolean) : Re
             .addOnFailureListener { exception ->
                 Log.d(TAG, "get failed with ", exception)
             }
+
+        holder.trashImageView.setOnClickListener {
+            db.collection("books").document(currentBook.bookId)
+                .delete()
+                .addOnSuccessListener {
+                    Log.d(TAG, "Book successfully deleted!")
+                    // Remove the item from your local list and notify adapter to update UI
+                    books.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyItemRangeChanged(position, books.size)
+                }
+                .addOnFailureListener { e ->
+                    Log.w(TAG, "Error deleting book", e)
+                }
+        }
 
         like_fill.setOnClickListener {
 
